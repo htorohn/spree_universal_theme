@@ -1,0 +1,18 @@
+es:
+    spree:
+        order_number_theme: Orden %{number}
+        login_theme: Ingresar
+        register_theme: Registrarse
+        product_scroll: Ver los detalles del producto
+        order_state:
+          address: Dirección
+          awaiting_return: Esperando devolución
+          canceled: cancelada
+          cart: Carrito
+          complete: completado
+          confirm: Confirmada
+          considered_risky: considerado arriesgado
+          delivery: Entrega
+          payment: Pago
+          resumed: reanudado
+          returned: devuelto

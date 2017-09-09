@@ -1,0 +1,6 @@
+<% if spree_current_user %>
+  <li class="resp-tab-item" aria-controls="tab_item-0"><%= link_to Spree.t(:my_account), spree.account_path %></li>
+  <li class="resp-tab-item" aria-controls="tab_item-1"><%= link_to Spree.t(:logout), spree.logout_path %></li>
+<% else %>
+  <li class="resp-tab-item" aria-controls="tab_item-0"><%= link_to Spree.t(:login_theme), spree.login_path %></li>
+<% end %>

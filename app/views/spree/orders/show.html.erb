@@ -1,0 +1,44 @@
+
+<div class="container">
+
+    <% content_for :google_analytics do %>
+        <% if order_just_completed?(@order) %>
+            <%= render partial: 'spree/shared/google_purchase.js', locals: { order: @order } %>
+        <% end %>
+    <% end %>
+    
+    <div class="box">
+    
+        <fieldset id="order_summary" data-hook>
+            <h2><%= Spree.t(:order_number_theme, number: @order.number) %></h2>
+            <br>
+            <!--<h1><%#= accurate_title %></h1>-->
+            <% if order_just_completed?(@order) %>
+                <strong><%= Spree.t(:thank_you_for_your_order) %></strong>
+                <br>
+            <% end %>
+            
+            <div id="order" data-hook>
+                <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
+                
+                <br class="clear" />
+                
+                <p data-hook="links">
+                    <%= link_to spree.root_path, class: "btn btn-primary" do %>
+                        <%= content_tag(:i, '', class: 'fa fa-chevron-left') %>
+                        <%= Spree.t(:back_to_store) %>
+                    <% end %>
+                    <% unless order_just_completed?(@order) %>
+                        <% if try_spree_current_user && respond_to?(:account_path) %>
+                            <%= link_to account_path, class: "btn btn-default" do %>
+                                <%= content_tag(:i, '', class: 'fa fa-user') %>
+                                <%= Spree.t(:my_account) %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </p>
+            </div>
+        </fieldset>
+    </div>
+
+</div>

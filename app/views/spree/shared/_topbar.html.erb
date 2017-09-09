@@ -1,0 +1,68 @@
+<!-- *** TOPBAR ***
+_________________________________________________________ -->
+
+<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	        
+	        <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;</button>
+				<h4 class="modal-title" id="myModalLabel">
+					Don't Wait, Login now!
+				</h4>
+			</div>
+        
+            <div class="modal-body modal-body-sub">
+				<div class="row">
+					<div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
+						<div class="sap_tabs">	
+							<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+        
+                        	    <ul>
+                                    <!--<li>-->
+                                        <!--<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>-->
+                                        <%= render partial: 'spree/shared/link_to_account' %>
+                                    <!--</li>-->
+                                    <% if !spree_current_user %>
+                                        <li class="resp-tab-item" aria-controls="tab_item-1">
+                                            <%= link_to Spree.t(:register_theme), spree.signup_path %>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	//$('#myModal88').modal('show');
+</script>
+
+<div class="header" id="top">
+    <div class="container">
+        <div class="row">
+        <div class="w3l_login">
+            
+            <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+
+        </div>
+        
+        <div class="w3l_logo">
+            <%= logo a_options: { class: ""}, img_options: { width: "200"} %>
+        </div>
+        
+        
+        <div class="cart box_1">
+            <%= render partial: 'spree/shared/link_to_cart' %>
+        </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- *** TOP BAR END *** -->

@@ -1,0 +1,80 @@
+<!--<div id="spree-header">-->
+
+<div class="navigation">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				 <!--Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header nav_2">
+					<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div> 
+        
+        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+  			  <ul class="nav navbar-nav">
+  			    <li class="<%= current_page?("/") ? "active" : "" %>" id="home-link" data-hook>
+              <%= link_to Spree.t(:home), spree.root_path %>
+            </li>
+            
+            <% @taxonomies.each do |taxonomy| %>
+              <li class="dropdown">
+                <%= link_to '#', data: { toggle: "dropdown"}, "aria-haspopup" => 'true' do%>
+                  <%= taxonomy.name %> <span class="caret"></span>
+                <% end %>
+                <!-- <div class="mainmenu-submenu">-->
+                <!--<div class="mainmenu-submenu-inner"> -->
+                <%= nav_tree(taxonomy.root, @taxon, 1) %>
+                <!--  </div>-->
+                <!--</div>-->
+                
+                
+              </li>
+            <% end %>
+            
+            <!--  Ingresa las paginas estaticas, si las hay -->
+  						<%= render partial: 'spree/static_content/static_content_list', collection: Spree::Page.by_store(current_store).visible.header_links, as: :page %>
+            
+  			  </ul>
+          <!--</figure>-->
+            <%#= render partial: 'spree/shared/nav_bar' %>
+            
+            
+          
+          
+          <!--<div class="navbar-collapse collapse right" id="search-not-mobile">-->
+            <!--<button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">-->
+            <!--<span class="sr-only">Toggle search</span>-->
+            <!--<i class="fa fa-search"></i>-->
+            <!--</button>-->
+          <!--</div>-->
+
+          
+        <!--<div class="collapse clearfix" id="search">-->
+          
+        <!--  <div class="pull-right">-->
+            <%#= render partial: 'spree/shared/search' %>
+        <!--  </div>-->
+        <!--</div>  -->
+        </div>
+            
+            
+        
+            
+        
+        
+      
+            
+          
+            
+         </nav>   
+        
+      </div>  <!-- container -->
+    <!--</header>-->
+    <!--<div class="container">-->
+      <%#= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
+    <!--</div>-->
+  
+</div>

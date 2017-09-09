@@ -1,0 +1,38 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+
+<div class="box-header">
+    <h3>Order summary</h3>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table" data-hook>
+        <tbody>
+            <% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
+                <tr>
+                    <td colspan="4" align='right'>
+                        <%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %>
+                    </td>
+                    <td colspan>
+                        <%= order_form.object.display_item_total %>
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                <%= render "spree/orders/adjustments" %>
+            <% end %>
+            <tr>
+                <th colspan="4" align='right'>
+                    <%= Spree.t(:total) %>
+                </td>
+                <th colspan="2">
+                    <%= order_form.object.display_total %>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

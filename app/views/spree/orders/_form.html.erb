@@ -1,0 +1,48 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+
+<div>
+    <h3><%= Spree.t(:shopping_cart) %></h3>
+</div>
+<table class="table" id="cart-detail" data-hook>
+    <thead>
+        <tr data-hook="cart_items_headers">
+            <th colspan="2"><%= Spree.t(:item) %></th>
+            <th><%= Spree.t(:price) %></th>
+            <th><%= Spree.t(:qty) %></th>
+            <th colspan="2"><%= Spree.t(:total) %></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="line_items" data-hook>
+        <%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+    </tbody>
+    <tfoot>
+        <% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
+            <tr>
+                <td colspan="4" align='right'>
+                    <%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %>
+                </td>
+                <td colspan>
+                    <%= order_form.object.display_item_total %>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <%= render "spree/orders/adjustments" %>
+        <% end %>
+        <tr>
+            <th colspan="4" align='right'>
+                <%= Spree.t(:total) %>
+            </td>
+            <th colspan="2">
+                <%= order_form.object.display_total %>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+

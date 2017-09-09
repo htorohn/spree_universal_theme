@@ -1,0 +1,54 @@
+<% @body_id = 'home-page' %>
+
+<%# content_for :sidebar do %>
+  <!--<div data-hook="homepage_sidebar_navigation">-->
+    <%#= render partial: 'spree/shared/taxonomies' %>
+  <!--</div>-->
+<%# end %>
+
+
+<div class="container">
+<%= render partial: 'spree/home/main_info' %>
+</div>
+
+
+
+<div id="hot" data-animate="fadeInUp">
+  <div class="box">
+      <div class="container">
+          <div class="col-md-12">
+              <h2>Lo último</h2>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="container">
+    <div data-hook="homepage_products">
+      <% cache(cache_key_for_products) do %>
+        <%= render partial: 'spree/shared/slider_products', locals: { products: @latest_products } %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <%# if @best_sellers != nil then %>
+    <!-- <div class="box">
+        <div class="container">
+            <div class="col-md-12">
+                <h2>Lo más vendido</h2>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <div class="container">
+      <div data-hook ="homepage_products"> -->
+        <%# cache(cache_key_for_products) do %>
+          <%#= render partial: 'spree/shared/slider_products', locals: { products: @best_sellers } %>
+        <%# end %>
+      <!-- </div>
+    </div> -->
+  <%# end %>
+</div>

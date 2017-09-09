@@ -1,0 +1,17 @@
+<% if @product.taxons.present? %>
+  
+    <div class="panel panel-default sidebar-menu">
+        <div class="panel-heading">
+
+            <h3 panel-title><%= Spree.t(:look_for_similar_items) %></h3>
+
+        </div>
+        
+        <div class="list-group" id="similar_items_by_taxon" data-hook>
+            <% @product.taxons.each do |taxon| %>
+                <%= link_to taxon.name, seo_url(taxon), class: 'list-group-item' %>
+            <% end %>
+        </div>
+
+    </div>
+<% end %>

@@ -1,0 +1,121 @@
+<% @body_id = 'product-details' %>
+
+
+<div class="container">
+
+  <!--<div class="col-md-3" data-hook="homepage_sidebar_navigation">-->
+    <%#= render partial: 'spree/shared/taxonomies' %>
+    
+  <!--</div>-->
+  
+  
+  <% cache cache_key_for_product do %>
+    <div class="col-md-12">
+      <div id="productMain" data-hook="product_show" class="row" itemscope itemtype="https://schema.org/Product">
+        <div class="col-sm-5">
+          
+          <div class="box" id="product-images" data-hook="product_images">
+            <div class="container">
+              <div id="main-image" class="mainImage">
+                <%= product_image(@product, itemprop: "image", class: "img-responsive") %>
+              </div>
+            </div>
+            <br>
+            <div id="thumbnails" class="thumbnails">
+              <%= render partial: 'thumbnails' %>
+            </div>
+            
+          </div>
+        </div>  
+          
+        <div class="col-sm-7">  
+          
+          <div class="box">
+          
+            <div id="product-description" data-hook="product_description">
+              <h1 class="text-center" itemprop="name"><%= @product.name %></h1>
+            </div>
+            
+            <p class="goToDescription">
+              <a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
+            </p>
+            
+         
+              <%#= product_description(@product) %>
+
+            
+            <div id="cart-form" data-hook="cart_form">
+              <%= render partial: 'cart_form' %>
+            </div>
+            
+          </div>
+            
+        </div> 
+          
+         
+         
+        
+          <!--<div data-hook="product_left_part_wrap">-->
+          <!--  <div id="product-images" data-hook="product_images">-->
+          <!--    <div id="main-image" class="panel panel-default" data-hook>-->
+                
+          <!--    </div>-->
+          <!--    <div id="thumbnails" data-hook>-->
+               
+            <!--  </div>-->
+            <!--</div>-->
+    
+            <!--<div data-hook="product_properties">-->
+              <%#= render partial: 'properties' %>
+            <!--</div>-->
+    
+            <!--<div data-hook="promotions">-->
+              <%#= render partial: 'promotions' %>
+          <!--  </div>-->
+          <!--</div>-->
+        
+    
+        
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-md-4"> 
+          <%= render partial: 'taxons' %>
+        </div>
+        
+        <div class="col-md-8"> 
+          <div class="box" id="details">
+              <div class="tabbable">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs product-details-nav">
+                  <li class="active"><a href="#tab1" data-toggle="tab">Description</a></li>
+                  <li><a href="#tab2" data-toggle="tab">Specification</a></li>
+                </ul>
+                <!-- Tab Content (Full Description) -->
+                <div class="tab-content product-detail-info">
+                  <div class="tab-pane active" id="tab1">
+                    <p>
+        						  <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+    	    			    </p>
+                  </div>
+                  <div class="tab-pane" id="tab2">
+                    <%= render partial: 'properties' %>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div
+      
+      
+      </div>
+      <!--<div class="box">-->
+      <!--  <div id="taxon-crumbs" class=" five " data-hook="product_taxons">-->
+      
+      <!--  </div>-->
+      <!--</div>-->
+      
+    </div>
+  <% end %>
+
+</div>

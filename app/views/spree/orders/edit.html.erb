@@ -38,7 +38,7 @@
                                 <div class="input-group">
                                     <%= order_form.text_field :coupon_code, size: '30', placeholder: Spree.t(:coupon_code), class: 'form-control' %>
                                     <span class='input-group-btn'>
-                                    <%= button_tag Spree.t(:coupon_code_apply), class: 'btn btn-primary' do %>
+                                    <%= button_tag Spree.t(:coupon_code_apply), class: 'btn btn-warning' do %>
                                         <%= content_tag(:i, '', class: 'fa fa-gift') %>
                                     <% end %>
                                     </span>
@@ -50,7 +50,7 @@
                                     <%= Spree.t(:update) %>
                                     
                                 <% end %>
-                                <%= button_tag class: 'btn btn-primary', id: 'checkout-link', name: 'checkout' do %>
+                                <%= button_tag class: 'btn btn-warning', id: 'checkout-link', name: 'checkout' do %>
                                     <%= Spree.t(:checkout) %>
                                     <%= content_tag(:i, '', class: 'fa fa-chevron-right') %>
 

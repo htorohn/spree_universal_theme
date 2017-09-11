@@ -20,20 +20,31 @@ module Spree::BaseHelper
    
     def nav_tree(root_taxon, current_taxon, max_level = 1)
         return '' if max_level < 1 || root_taxon.children.empty?
-        content_tag :ul, class: 'dropdown-menu multi-column columns-3' do
-            taxons = root_taxon.children.map do |taxon|
-                css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'active' : nil
-                #content_tag :li, class: css_class do
-                    #content_tag :div, class: "yamm-content" do   
-                        #content_tag :ul do
-                            
-                            content_tag :li, link_to(taxon.name, seo_url(taxon)) +
-                                taxons_tree(taxon, current_taxon, max_level - 1), class: "h6"
-                        #end
-                    #end
-                #end
+        content_tag :ul, class: 'dropdown-menu' do
+            content_tag :div, class: "row" do 
+              #content_tag :div, class: "col-sm-3" do
+              #end
+              content_tag :div, class: "col-sm-6 col-sm-offset-3" do
+                content_tag :ul, class: "multi-column-dropdown" do
+                  taxons = root_taxon.children.map do |taxon|
+                      css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'active' : nil
+                      #content_tag :li, class: css_class do
+                          #content_tag :div, class: "yamm-content" do   
+                              #content_tag :ul do
+                                  
+                                  content_tag :li, link_to(taxon.name, seo_url(taxon)) +
+                                      taxons_tree(taxon, current_taxon, max_level - 1)
+                              #end
+                          #end
+                      #end
+                  end
+                  safe_join(taxons, "\n")
+                end
+              end
+              #content_tag :div, class: "col-sm-3" do
+              #end
             end
-            safe_join(taxons, "\n")
+            
         end
     end
     

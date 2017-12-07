@@ -1,9 +1,9 @@
 <!-- *** FOOTER ***
  _________________________________________________________ -->
-        <div id="footer" data-animate="fadeInUp">
+        <div class="footer" data-animate="fadeInUp">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-8">
+                <div class="w3_footer_grids">
+                    <div class="col-md-4 col-sm-8 w3_footer_grid">
                         <h4>Páginas</h4>
 
                         <ul>
@@ -52,7 +52,7 @@
                     </div> -->
                     <!-- /.col-md-3 -->
 
-                    <div class="col-md-4 col-sm-8">
+                    <div class="col-md-4 col-sm-8 w3_footer_grid">
 
                         <h4>Dirección</h4>
 
@@ -74,7 +74,7 @@
 
 
 
-                    <div class="col-md-4 col-sm-8">
+                    <div class="col-md-4 col-sm-8 w3_footer_grid">
 
                         
                         
@@ -107,24 +107,25 @@
 
                         <h4>Stay in touch</h4>
 
-                        <p class="social">
-                            <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
-                        </p>
+                        <div class="agileits_social_button">
+						<ul>
+							<li><a href="#" class="facebook"> </a></li>
+							<li><a href="#" class="twitter"> </a></li>
+							<li><a href="#" class="google"> </a></li>
+							<li><a href="#" class="pinterest"> </a></li>
+						</ul>
+					</div>
 
 
                     </div>
                     <!-- /.col-md-3 -->
-
+                    <div class="clearfix"> </div>
                 </div>
-                <!-- /.row -->
+                <!-- /.w3_footer_grids -->
 
             </div>
             <!-- /.container -->
-        </div>
+            
         <!-- /#footer -->
 
         <!-- *** FOOTER END *** -->
@@ -134,19 +135,23 @@
 
         <!-- *** COPYRIGHT ***
  _________________________________________________________ -->
-        <div id="copyright">
+        <div class="footer-copy">
+            
+            <div class="footer-copy1">
+				<div class="footer-copy-pos">
+					<a href="#home1" class="scroll"><img src="<%= image_url('spree/frontend/template/arrow.png') %>" alt=" " class="img-responsive" /></a>
+				</div>
+			</div>
+			
             <div class="container">
-                <div class="col-md-6">
-                    <p class="pull-left">© 2017 <%= title %></p>
-
-                </div>
-                <div class="col-md-6">
-                    <p class="pull-right"> <a href="https://www.dinamicsolutions.net">Dinamic Solutions</a>
+                <!--<div class="col-md-6">-->
+                    <p class="">© 2017 <%= title %> | <a href="https://www.dinamicsolutions.net">Dinamic Solutions</a>
                          <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
                     </p>
-                </div>
+                <!--</div>-->
             </div>
         </div>
         <!-- *** COPYRIGHT END *** -->
+    </div>
         
 <%#= javascript_include_tag 'spree/frontend/all' %>
